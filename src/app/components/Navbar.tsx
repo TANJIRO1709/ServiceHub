@@ -44,8 +44,9 @@ function Navbar() {
             className="text-white border-white hover:shadow-lg shadow-xl transform transition duration-300 hover:translate-y-[-3px]"
             _hover={{ bg: 'whiteAlpha.300' }}
             _focus={{ boxShadow: 'none' }}
-          >
+          ><a href="#">
             Sign In
+            </a>
           </Button>
 
           <Button
@@ -55,7 +56,9 @@ function Navbar() {
             _hover={{ bg: 'teal.500' }}
             _focus={{ boxShadow: 'none' }}
           >
+            <a href='#'>
             Sign Up
+            </a>
           </Button>
 
           {/* Profile Button */}
@@ -67,7 +70,9 @@ function Navbar() {
             _active={{ transform: 'translateY(3px)' }}
             _focus={{ boxShadow: 'none' }}
           >
+            <a href='#'>
             Profile
+            </a>
           </Button>
 
           {/* Profile Avatar */}
