@@ -1,10 +1,11 @@
 "use client";
 import React, { useState } from 'react';
-import { Button, Avatar, IconButton } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { Button, IconButton, useColorMode } from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { colorMode, toggleColorMode } = useColorMode(); // Chakra UI color mode hook
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -13,18 +14,25 @@ function Navbar() {
   return (
     <div>
       <nav className="flex justify-between items-center p-6 bg-black shadow-lg">
-        {/* Logo with subtle text shadow */}
-        <h1 className="text-3xl md:text-4xl font-bold text-white text-shadow-lg">
-          RideShare
-        </h1>
+        {/* Logo */}
+        <h1 className="text-3xl md:text-4xl font-bold text-white">RideShare</h1>
 
         {/* Hamburger Icon for small screens */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
           <IconButton
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             onClick={toggleMenu}
             variant="outline"
             aria-label="Toggle Navigation"
+            colorScheme="whiteAlpha"
+            size="lg"
+            className="mr-4"
+          />
+          {/* Dark Mode Toggle Button for small screens */}
+          <IconButton
+            icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            onClick={toggleColorMode}
+            aria-label="Toggle Dark Mode"
             colorScheme="whiteAlpha"
             size="lg"
           />
@@ -44,9 +52,8 @@ function Navbar() {
             className="text-white border-white hover:shadow-lg shadow-xl transform transition duration-300 hover:translate-y-[-3px]"
             _hover={{ bg: 'whiteAlpha.300' }}
             _focus={{ boxShadow: 'none' }}
-          ><a href="#">
-            Sign In
-            </a>
+          >
+            <a href="#">Sign In</a>
           </Button>
 
           <Button
@@ -56,9 +63,7 @@ function Navbar() {
             _hover={{ bg: 'teal.500' }}
             _focus={{ boxShadow: 'none' }}
           >
-            <a href='#'>
-            Sign Up
-            </a>
+            <a href="#">Sign Up</a>
           </Button>
 
           {/* Profile Button */}
@@ -70,12 +75,18 @@ function Navbar() {
             _active={{ transform: 'translateY(3px)' }}
             _focus={{ boxShadow: 'none' }}
           >
-            <a href='#'>
-            Profile
-            </a>
+            <a href="#">Profile</a>
           </Button>
 
-          {/* Profile Avatar */}
+          {/* Dark Mode Toggle Button for larger screens */}
+          <IconButton
+            icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            onClick={toggleColorMode}
+            aria-label="Toggle Dark Mode"
+            colorScheme="whiteAlpha"
+            size="lg"
+            className="ml-4"
+          />
         </div>
       </nav>
     </div>
