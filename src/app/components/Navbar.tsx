@@ -53,7 +53,7 @@ function Navbar() {
             _hover={{ bg: 'whiteAlpha.300' }}
             _focus={{ boxShadow: 'none' }}
           >
-            <a href="#">Sign In</a>
+            <a href="/components/Sign">Sign In</a>
           </Button>
 
           
