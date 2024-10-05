@@ -56,37 +56,10 @@ function Navbar() {
             <a href="#">Sign In</a>
           </Button>
 
-          <Button
-            size="2xl"
-            fontSize="2xl"
-            className="bg-gradient-to-r from-teal-400 to-blue-500 text-white font-bold shadow-xl transform transition duration-300 hover:shadow-2xl hover:translate-y-[-3px] rounded-lg"
-            _hover={{ bg: 'teal.500' }}
-            _focus={{ boxShadow: 'none' }}
-          >
-            <a href="#">Sign Up</a>
-          </Button>
-
-          {/* Profile Button */}
-          <Button
-            size="2xl"
-            fontSize="2xl"
-            className="bg-gradient-to-r from-green-400 to-blue-600 text-white font-bold shadow-xl transform transition duration-300 hover:shadow-2xl hover:translate-y-[-3px] rounded-lg"
-            _hover={{ bg: 'green.500', boxShadow: '0 0 15px rgba(0, 255, 255, 0.6)' }}
-            _active={{ transform: 'translateY(3px)' }}
-            _focus={{ boxShadow: 'none' }}
-          >
-            <a href="#">Profile</a>
-          </Button>
-
+          
           {/* Dark Mode Toggle Button for larger screens */}
-          <IconButton
-            icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-            onClick={toggleColorMode}
-            aria-label="Toggle Dark Mode"
-            colorScheme="whiteAlpha"
-            size="lg"
-            className="ml-4"
-          />
+     
+  
         </div>
       </nav>
     </div>
