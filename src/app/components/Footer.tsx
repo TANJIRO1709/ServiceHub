@@ -2,27 +2,13 @@
 import React from 'react';
 import { Box, Text, Link, HStack, IconButton, Flex, Stack } from '@chakra-ui/react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-import { motion, isValidMotionProp } from 'framer-motion'; // Importing framer-motion for animations
-import { chakra } from '@chakra-ui/system'; // Importing chakra to fix type errors
+import { motion } from 'framer-motion'; // Importing framer-motion for animations
+import { chakra } from '@chakra-ui/system'; // Importing chakra for Chakra UI compatibility
 
-// Wrapping Chakra UI components with chakra() and motion
-const MotionBox = motion(
-  chakra(Box, {
-    shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children',
-  })
-);
-
-const MotionText = motion(
-  chakra(Text, {
-    shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children',
-  })
-);
-
-const MotionLink = motion(
-  chakra(Link, {
-    shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children',
-  })
-);
+// Wrapping Chakra UI components with motion.custom
+const MotionBox = motion(chakra(Box));
+const MotionText = motion(chakra(Text));
+const MotionLink = motion(chakra(Link));
 
 function Footer() {
   return (
