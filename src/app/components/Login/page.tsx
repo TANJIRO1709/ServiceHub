@@ -5,16 +5,15 @@ import {
   AtSymbolIcon,
   KeyIcon,
   ExclamationCircleIcon,
-  UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Button } from "@/app/components/button";
 import { useFormState, useFormStatus } from "react-dom";
-import { handleSignUp } from "@/lib/cognitoActions";
+import { handleSignIn } from "@/lib/cognitoActions";
 import Link from "next/link";
 
-export default function SignUpForm() {
-  const [errorMessage, dispatch] = useFormState(handleSignUp, undefined);
+export default function LoginForm() {
+  const [errorMessage, dispatch] = useFormState(handleSignIn, undefined);
   return (
     <div className="flex min-h-screen items-center justify-center bg-black">
       <form
@@ -24,30 +23,10 @@ export default function SignUpForm() {
         <h1
           className={`${lusitana.className} mb-3 text-center text-2xl sm:text-3xl font-semibold text-gray-900`}
         >
-          Please create an account.
+          Please log in to continue.
         </h1>
         <div className="w-full">
           <div>
-            <label
-              className="mb-2 block text-xs font-medium text-gray-900 sm:text-sm"
-              htmlFor="name"
-            >
-              Name
-            </label>
-            <div className="relative">
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm sm:text-base outline-2 transition-all focus:ring focus:ring-indigo-500 placeholder:text-gray-500 text-black"
-                id="name"
-                type="text"
-                name="name"
-                minLength={4}
-                placeholder="Enter your name"
-                required
-              />
-              <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-indigo-600" />
-            </div>
-          </div>
-          <div className="mt-4">
             <label
               className="mb-2 block text-xs font-medium text-gray-900 sm:text-sm"
               htmlFor="email"
@@ -90,10 +69,10 @@ export default function SignUpForm() {
         <LoginButton />
         <div className="flex justify-center">
           <Link
-            href="/components/Login"
+            href="/components/Sign"
             className="mt-2 cursor-pointer text-blue-500 hover:underline"
           >
-            Already have an account? Log in.
+            {"Don't have an account? "} Sign up.
           </Link>
         </div>
         <div className="flex h-8 items-end space-x-1">
@@ -125,7 +104,7 @@ function LoginButton() {
       }`}
       aria-disabled={pending}
     >
-      Create account
+      Log in
       <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
