@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features'; 
 import CTA from './components/CTA';
-
+import AI from './components/AI';
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
         <Hero />
         <Features />
         <CTA />
-
+        <AI/>
       </main>
   
   );
